@@ -14,12 +14,22 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background: url('pn1.jpg') no-repeat center center fixed;
-            background-size: cover;
+            overflow: hidden;
+        }
+
+        /* الخلفية عبر الفيديو */
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
         }
 
         .overlay {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
@@ -93,28 +103,41 @@
 
 <body>
 
+    <!-- خلفية الفيديو -->
+    <video autoplay muted loop class="background-video">
+        <source src="Yellow.mp4" type="video/mp4">
+        متصفحك لا يدعم فيديو HTML5.
+    </video>
+
     <div class="overlay"></div>
 
     <div class="form-container">
-        <h2>تسجيل الدخول</h2>
+        <h2>تسجيل الدخول شريكة فيوجن برو</h2>
         <form action="index2.html" method="get" onsubmit="return checkTerms()">
-            <input type="text" name="name" placeholder="الاسم" required>
-            <input type="email" name="email" placeholder="البريد الإلكتروني" required>
+            <input type="text" name="name" id="name" placeholder="الاسم" required>
+            <input type="email" name="email" id="email" placeholder="البريد الإلكتروني" required>
             
             <!-- شروط الاستخدام -->
             <div class="terms">
                 <label>
                     <input type="checkbox" id="termsCheckbox">
-                    أوافق على <a href="index1.html" target="_blank">شروط الاستخدام</a> و<a href= "index1.html" target="_blank">سياسة الخصوصية</a>
+                    أوافق على <a href="index1.html" target="_blank">شروط الاستخدام</a> و<a href="index1.html" target="_blank">سياسة الخصوصية</a>
                 </label>
             </div>
-            
-            <button type="submit">تسجيل</button>
+
+            <!-- خيار حفظ بيانات التسجيل -->
+            <div class="terms">
+                <label>
+                    <input type="checkbox" id="rememberCheckbox">
+                    حفظ بيانات التسجيل
+                </label>
+            </div>
+
+            <button type="submit" onclick="saveData()">تسجيل</button>
         </form>
     </div>
 
     <script>
-        // دالة التحقق من اختيار المستخدم للموافقة
         function checkTerms() {
             var checkbox = document.getElementById("termsCheckbox");
             if (!checkbox.checked) {
@@ -122,6 +145,28 @@
                 return false;
             }
             return true;
+        }
+
+        function saveData() {
+            var rememberCheckbox = document.getElementById("rememberCheckbox");
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+
+            if (rememberCheckbox.checked) {
+                localStorage.setItem("savedName", name);
+                localStorage.setItem("savedEmail", email);
+            } else {
+                localStorage.removeItem("savedName");
+                localStorage.removeItem("savedEmail");
+            }
+        }
+
+        window.onload = function() {
+            if (localStorage.getItem("savedName")) {
+                document.getElementById("name").value = localStorage.getItem("savedName");
+                document.getElementById("email").value = localStorage.getItem("savedEmail");
+                document.getElementById("rememberCheckbox").checked = true;
+            }
         }
     </script>
 
