@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fusion Pro</title>
+    <style>
+        /* خلفية شفافة مع الصورة */
+        body {
+            background-image: url('pn.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Sumbli', sans-serif;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* تنسيق النص */
+        h1 {
+            font-size: 30px;
+            margin-top: 20px;
+        }
+
+        /* إشعار أصغر */
+        p {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        /* إضافة شفافية للخلفية */
+        .container {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 10px;
+            display: inline-block;
+            max-width: 90%;
+        }
+
+        /* تحميل الأنيميشن */
+        .main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        /* تدوير المربع الأخضر */
+        .square {
+            width: 50px;
+            height: 50px;
+            background-color: green;
+            animation: rotateSquare 3s infinite linear;
+            margin: 20px;
+        }
+
+        /* تدوير التحميل */
+        @keyframes rotateSquare {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* تخصيص العرض لأجهزة الكمبيوتر */
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 40px;
+            }
+
+            p {
+                font-size: 18px;
+            }
+
+            .container {
+                padding: 40px;
+                max-width: 50%;
+            }
+
+            .square {
+                width: 60px;
+                height: 60px;
+            }
+
+            video {
+                width: 480px;
+                height: auto;
+            }
+        }
+
+        /* تخصيص العرض للأجهزة الصغيرة (الموبايل) */
+        @media (max-width: 767px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            .square {
+                width: 40px;
+                height: 40px;
+            }
+
+            video {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الحاوية التي تحتوي على النصوص -->
+    <div class="container">
+        <h1>شريكة فيوجن برو</h1>
+        <img src="2025_١٧٣٦٤٨.png" alt="Fusion Pro Image" style="max-width: 100%; height: auto; margin-top: 20px;">
+        <p>ستجد جميع التحديثات لشركة فيوجن برو مع التعديلات المستقبلية هنا👇🏻.</p>
+        
+        <!-- تضمين الفيديو -->
+        <video controls>
+            <source src="gftgh.mp4" type="video/mp4">
+            متصفحك لا يدعم الفيديو.
+        </video>
+    </div>
+
+    <!-- تحميل الأنيميشن -->
+    <div class="main">
+        <div class="loaders">
+            <div class="loader"></div>
+            <div class="loaderA"></div>
+        </div>
+
+        <!-- الدائرة الصفراء والمربع الأخضر المتحرك -->
+        <div class="circle"></div>
+        <div class="square"></div>
+    </div>
+
+</body>
+</html>
