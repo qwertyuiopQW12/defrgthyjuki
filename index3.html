@@ -42,6 +42,7 @@
             padding: 30px;
             border-radius: 10px;
             display: inline-block;
+            max-width: 90%;
         }
 
         /* تحميل الأنيميشن */
@@ -70,6 +71,53 @@
                 transform: rotate(360deg);
             }
         }
+
+        /* تخصيص العرض لأجهزة الكمبيوتر */
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 40px;
+            }
+
+            p {
+                font-size: 18px;
+            }
+
+            .container {
+                padding: 40px;
+                max-width: 50%;
+            }
+
+            .square {
+                width: 60px;
+                height: 60px;
+            }
+
+            video {
+                width: 480px;
+                height: auto;
+            }
+        }
+
+        /* تخصيص العرض للأجهزة الصغيرة (الموبايل) */
+        @media (max-width: 767px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            .square {
+                width: 40px;
+                height: 40px;
+            }
+
+            video {
+                width: 100%;
+                height: auto;
+            }
+        }
     </style>
 </head>
 <body>
@@ -79,8 +127,9 @@
         <h1>شريكة فيوجن برو</h1>
         <img src="2025_١٧٣٦٤٨.png" alt="Fusion Pro Image" style="max-width: 100%; height: auto; margin-top: 20px;">
         <p>ستجد جميع التحديثات لشركة فيوجن برو مع التعديلات المستقبلية هنا👇🏻.</p>
-        <!-- تضمين الفيديو المفقود -->
-        <video width="320" height="240" controls>
+        
+        <!-- تضمين الفيديو -->
+        <video controls>
             <source src="gftgh.mp4" type="video/mp4">
             متصفحك لا يدعم الفيديو.
         </video>
